@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Professional Hair Salon</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Professional Hair Salon — stylish cuts, expert coloring, and bespoke styling. Book your appointment today." />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <div class="container">
       <h1>Professional Hair Salon</h1>
+
+      <!-- Hamburger for small screens -->
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="22" height="14" viewBox="0 0 22 14" fill="none" aria-hidden="true">
+          <rect width="22" height="2" y="0" rx="1" fill="white"></rect>
+          <rect width="22" height="2" y="6" rx="1" fill="white"></rect>
+          <rect width="22" height="2" y="12" rx="1" fill="white"></rect>
+        </svg>
+      </button>
+
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -19,47 +30,90 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+
+      <!-- Theme toggle -->
+      <button class="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
     </div>
   </header>
 
-  <section id="hero">
+  <!-- HERO -->
+  <section id="hero" aria-labelledby="hero-title">
     <div class="container">
-      <h2>Transform Your Look</h2>
-      <p>Your beauty is our passion.</p>
-      <a class="btn" href="contact.html">Book Now</a>
+      <h2 id="hero-title">Transform Your Look</h2>
+      <p>Your beauty is our passion — precision cuts, bespoke color, and styling for every occasion.</p>
+      <a class="btn" href="contact.html" aria-label="Book an appointment">Book Now
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7" stroke="rgba(255,255,255,0.95)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
     </div>
   </section>
 
-  <section id="services-preview">
+  <!-- SERVICES PREVIEW -->
+  <section id="services-preview" aria-labelledby="services-title">
     <div class="container">
-      <h2>Our Services</h2>
-      <div class="service-grid">
-        <article class="service">
-          <h3>Haircuts</h3>
-          <p>Stylish cuts for men, women, and children.</p>
+      <h2 id="services-title">Our Services</h2>
+
+      <div class="service-grid" role="list">
+        <article class="service" role="listitem" aria-labelledby="svc-cut">
+          <h3 id="svc-cut">Haircuts</h3>
+          <p>Precision cuts for men, women, and children — tailored to your lifestyle and face shape.</p>
+          <p class="price">From €20</p>
         </article>
-        <article class="service">
-          <h3>Coloring</h3>
-          <p>Expert coloring services to enhance your natural beauty.</p>
+
+        <article class="service" role="listitem" aria-labelledby="svc-color">
+          <h3 id="svc-color">Coloring</h3>
+          <p>Balayage, highlights, full color, and corrective color using premium products.</p>
+          <p class="price">From €45</p>
         </article>
-        <article class="service">
-          <h3>Styling</h3>
-          <p>Special occasion styling and more.</p>
+
+        <article class="service" role="listitem" aria-labelledby="svc-style">
+          <h3 id="svc-style">Styling</h3>
+          <p>Blowouts, updos, and event styling — look flawless for every occasion.</p>
+          <p class="price">From €30</p>
         </article>
       </div>
+
       <p class="text-center"><a class="btn" href="services.html">See All Services</a></p>
     </div>
   </section>
 
-  <section id="gallery-preview">
+  <!-- GALLERY PREVIEW -->
+  <section id="gallery-preview" aria-labelledby="gallery-title">
     <div class="container">
-      <h2>Gallery</h2>
-      <div class="gallery-preview-grid">
-        <img src="hairstyle1.jpg" alt="Hairstyle 1">
-        <img src="hairstyle2.jpg" alt="Hairstyle 2">
-        <img src="hairstyle3.jpg" alt="Hairstyle 3">
+      <h2 id="gallery-title">Gallery</h2>
+
+      <div class="gallery-preview-grid" aria-live="polite">
+        <!-- data-lightbox attribute enables the lightbox in script.js -->
+        <img data-lightbox src="hairstyle1.jpg" alt="Elegant short haircut" />
+        <img data-lightbox src="hairstyle2.jpg" alt="Warm balayage color" />
+        <img data-lightbox src="hairstyle3.jpg" alt="Formal updo for event" />
       </div>
+
       <p class="text-center"><a class="btn" href="gallery.html">View Full Gallery</a></p>
+    </div>
+  </section>
+
+  <!-- ABOUT PREVIEW -->
+  <section id="about-preview" aria-labelledby="about-title">
+    <div class="container">
+      <h2 id="about-title">About Us</h2>
+      <p class="muted">We are a team of professional hairstylists dedicated to providing exceptional service. Our mission is to make every client feel confident and beautiful.</p>
+      <p class="text-center"><a class="btn" href="about.html">Learn More</a></p>
+    </div>
+  </section>
+
+  <!-- CONTACT PREVIEW -->
+  <section id="contact-preview" aria-labelledby="contact-title">
+    <div class="container">
+      <h2 id="contact-title">Contact Us</h2>
+
+      <div class="contact-card" role="region" aria-label="Contact information">
+        <p>Email: <a href="mailto:info@hairsalon.com">info@hairsalon.com</a></p>
+        <p>Phone: <a href="tel:+1234567890">(123) 456-7890</a></p>
+        <p>Address: 123 Hair St, Hairtown, HT 12345</p>
+        <p class="text-center"><a class="btn" href="contact.html">Get in Touch</a></p>
+      </div>
     </div>
   </section>
 
@@ -68,5 +122,8 @@
       <p>&copy; 2026 Professional Hair Salon. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Script: modern enhancements (active nav, hamburger, lightbox, lazy load, forms, theme toggle) -->
+  <script src="script.js" defer></script>
 </body>
 </html>
