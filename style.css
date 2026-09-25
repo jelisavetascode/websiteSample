@@ -1,11 +1,11 @@
-/* Reset some default browser styles */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body styling */
+/* Body */
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
@@ -22,6 +22,11 @@ header {
 
 header h1 {
   margin-bottom: 0.5rem;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 nav a {
@@ -46,4 +51,29 @@ footer {
   padding: 1rem;
   margin-top: 2rem;
   font-size: 0.9rem;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+  nav a {
+    margin: 0.5rem 0;
+  }
+  main {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+  main h2 {
+    font-size: 1.2rem;
+  }
+  body {
+    font-size: 0.9rem;
+  }
 }
