@@ -1,39 +1,36 @@
-/* styles.css
-   Professional Hair Salon — elegant, responsive, accessible
-   Drop into your project and commit to main branch
-*/
-
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap');
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;500;700&display=swap');
 
 :root{
-  --bg: #fffafc;
-  --card: #ffffff;
-  --muted: #7a6f78;
-  --accent: #b56576;      /* soft rose */
-  --accent-2: #355070;    /* deep elegant blue */
-  --accent-3: #6d597a;    /* muted purple */
-  --text: #2b2b2b;
-  --glass: rgba(255,255,255,0.7);
-  --radius: 12px;
+  --bg: #fffaf6;
+  --surface: #fff8f2;
+  --text: #2b1f18;
+  --muted: #6b584f;
+  --gold: #c99a5b;        /* warm gold */
+  --brown-1: #6b4f3a;     /* deep brown */
+  --brown-2: #8a6b4a;     /* medium brown */
+  --brown-3: #b08963;     /* light brown */
+  --accent: linear-gradient(90deg, #c99a5b, #b08963);
+  --glass: rgba(255,255,255,0.6);
+  --radius: 14px;
   --container-max: 1100px;
-  --transition: 300ms cubic-bezier(.2,.9,.3,1);
+  --transition: 260ms cubic-bezier(.2,.9,.3,1);
 }
 
-/* Global reset */
+/* Reset */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html,body { height: 100%; }
 body {
-  font-family: 'Raleway', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  color: var(--text);
+  font-family: 'Montserrat', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
   background: linear-gradient(180deg, var(--bg) 0%, #fff 100%);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
   font-size: 16px;
 }
 
-/* Layout container */
+/* Container */
 .container {
   width: 92%;
   max-width: var(--container-max);
@@ -42,13 +39,13 @@ body {
 
 /* Header */
 header {
-  background: linear-gradient(90deg, rgba(53,80,112,0.95), rgba(181,101,118,0.95));
+  background: linear-gradient(90deg, rgba(107,79,58,0.95), rgba(201,154,91,0.95));
   color: #fff;
-  padding: 1.1rem 0;
+  padding: 1rem 0;
   position: sticky;
   top: 0;
-  z-index: 40;
-  box-shadow: 0 6px 18px rgba(20,20,20,0.12);
+  z-index: 50;
+  box-shadow: 0 8px 30px rgba(30,20,15,0.12);
   backdrop-filter: blur(6px);
 }
 
@@ -78,8 +75,8 @@ nav ul {
 nav a {
   color: rgba(255,255,255,0.95);
   text-decoration: none;
-  padding: 0.45rem 0.6rem;
-  border-radius: 8px;
+  padding: 0.45rem 0.7rem;
+  border-radius: 10px;
   font-weight: 600;
   transition: background var(--transition), transform var(--transition);
 }
@@ -89,7 +86,6 @@ nav a:focus {
   background: rgba(255,255,255,0.08);
   transform: translateY(-2px);
   outline: none;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
 /* Hero */
@@ -101,31 +97,28 @@ nav a:focus {
   text-align: center;
   position: relative;
   overflow: hidden;
-  padding: 4rem 0;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
+  padding: 5rem 0;
+  border-bottom-left-radius: 36px;
+  border-bottom-right-radius: 36px;
 }
 
-/* Hero background: prefer local image if available; fallback to Unsplash */
+/* Hero background prefers local image; fallback to Unsplash */
 #hero::before{
   content: "";
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(21,21,21,0.35) 0%, rgba(21,21,21,0.55) 100%),
+    linear-gradient(180deg, rgba(20,14,10,0.28) 0%, rgba(20,14,10,0.48) 100%),
     url('images/salon-hero.jpg') center/cover no-repeat;
   background-blend-mode: overlay;
-  transition: transform 800ms ease;
-  will-change: transform;
-  transform-origin: center;
   z-index: 0;
+  transition: transform 900ms ease;
 }
 
-/* If local image missing, use Unsplash fallback */
 @supports (background-image: url('https://source.unsplash.com/1600x900/?hair,salon')) {
   #hero::before {
     background-image:
-      linear-gradient(180deg, rgba(21,21,21,0.35) 0%, rgba(21,21,21,0.55) 100%),
+      linear-gradient(180deg, rgba(20,14,10,0.28) 0%, rgba(20,14,10,0.48) 100%),
       url('https://source.unsplash.com/1600x900/?hair,salon');
   }
 }
@@ -135,126 +128,129 @@ nav a:focus {
   font-family: 'Playfair Display', serif;
   font-size: 2.6rem;
   margin-bottom: 0.6rem;
+  color: #fff;
   letter-spacing: 0.6px;
 }
 #hero p {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: rgba(255,255,255,0.95);
   margin-bottom: 1.2rem;
 }
 
-/* CTA button style (if you add a button) */
+/* CTA */
 .btn {
   display: inline-block;
-  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  background: var(--accent);
   color: #fff;
   padding: 0.75rem 1.25rem;
-  border-radius: 10px;
+  border-radius: 12px;
   text-decoration: none;
   font-weight: 700;
-  box-shadow: 0 8px 24px rgba(53,80,112,0.18);
+  box-shadow: 0 12px 30px rgba(107,79,58,0.18);
   transition: transform var(--transition), box-shadow var(--transition);
 }
 .btn:hover, .btn:focus {
   transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(53,80,112,0.22);
+  box-shadow: 0 22px 48px rgba(107,79,58,0.22);
   outline: none;
 }
 
 /* Sections */
-section {
-  padding: 3rem 0;
-}
-
+section { padding: 3rem 0; }
 section h2 {
   font-family: 'Playfair Display', serif;
   font-size: 1.6rem;
-  color: var(--text);
+  color: var(--brown-1);
   margin-bottom: 1rem;
 }
 
-/* Services layout */
-#services .container {
+/* Services grid */
+.service-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
-  align-items: start;
 }
 
 .service {
-  background: linear-gradient(180deg, var(--card), rgba(255,255,255,0.9));
+  background: linear-gradient(180deg, var(--surface), rgba(255,248,240,0.9));
   border-radius: var(--radius);
   padding: 1.25rem;
-  box-shadow: 0 8px 24px rgba(30,30,30,0.06);
+  box-shadow: 0 10px 30px rgba(30,20,15,0.06);
+  border: 1px solid rgba(20,14,10,0.04);
   transition: transform var(--transition), box-shadow var(--transition);
-  border: 1px solid rgba(20,20,20,0.03);
 }
 
 .service h3 {
   font-family: 'Playfair Display', serif;
   margin-bottom: 0.5rem;
-  color: var(--accent-2);
+  color: var(--brown-2);
 }
 
-.service p {
-  color: var(--muted);
-}
+.service p { color: var(--muted); }
 
-/* Hover lift */
+/* Service hover */
 .service:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 22px 50px rgba(30,30,30,0.12);
+  transform: translateY(-10px);
+  box-shadow: 0 28px 60px rgba(30,20,15,0.12);
 }
 
-/* About */
-#about p {
-  max-width: 70ch;
-  color: var(--muted);
+/* Price tag */
+.price {
+  margin-top: 0.8rem;
+  font-weight: 700;
+  color: var(--brown-1);
 }
 
 /* Gallery */
-#gallery .container {
+.gallery-preview-grid,
+.gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.9rem;
-  align-items: stretch;
 }
 
-#gallery img {
+.gallery-preview-grid img,
+.gallery-grid img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
   display: block;
   transition: transform var(--transition), filter var(--transition);
-  box-shadow: 0 8px 20px rgba(20,20,20,0.08);
+  box-shadow: 0 10px 28px rgba(20,14,10,0.06);
 }
 
-#gallery img:hover {
+.gallery-preview-grid img:hover,
+.gallery-grid img:hover {
   transform: scale(1.03);
-  filter: saturate(1.05) contrast(1.02);
+  filter: saturate(1.06) contrast(1.03);
 }
 
 /* Contact */
-#contact p {
-  color: var(--muted);
-  margin-bottom: 0.45rem;
+.contact-card {
+  background: linear-gradient(180deg, rgba(255,250,246,0.9), var(--surface));
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(30,20,15,0.06);
+  border: 1px solid rgba(20,14,10,0.04);
 }
+
+.contact-card p { color: var(--muted); margin-bottom: 0.5rem; }
 
 /* Footer */
 footer {
   background: #fff;
-  border-top: 1px solid rgba(20,20,20,0.04);
+  border-top: 1px solid rgba(20,14,10,0.04);
   padding: 1.25rem 0;
   text-align: center;
   color: var(--muted);
   font-size: 0.95rem;
 }
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 980px) {
-  #services .container { grid-template-columns: repeat(2, 1fr); }
-  #gallery .container { grid-template-columns: repeat(2, 1fr); }
+  .service-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-preview-grid, .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   header h1 { font-size: 1.1rem; }
   #hero h2 { font-size: 2.1rem; }
 }
@@ -262,28 +258,28 @@ footer {
 @media (max-width: 640px) {
   nav ul { flex-direction: column; gap: 0.4rem; align-items: flex-end; }
   header .container { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
-  #services .container { grid-template-columns: 1fr; }
-  #gallery .container { grid-template-columns: 1fr; }
+  .service-grid { grid-template-columns: 1fr; }
+  .gallery-preview-grid, .gallery-grid { grid-template-columns: 1fr; }
   #hero { padding: 3rem 0; min-height: 44vh; }
   #hero h2 { font-size: 1.6rem; }
   .container { width: 94%; }
 }
 
-/* Accessibility focus styles */
+/* Accessibility focus */
 a:focus, button:focus {
-  outline: 3px solid rgba(181,101,118,0.18);
+  outline: 3px solid rgba(201,154,91,0.18);
   outline-offset: 3px;
   border-radius: 8px;
 }
 
-/* Small decorative flourish */
+/* Subtle animation */
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-6px); }
   100% { transform: translateY(0px); }
 }
-header h1 { animation: float 8s ease-in-out infinite; opacity: 0.98; }
+header h1 { animation: float 9s ease-in-out infinite; opacity: 0.98; }
 
-/* Utility helpers */
+/* Utility */
 .text-center { text-align: center; }
 .muted { color: var(--muted); font-size: 0.95rem; }
